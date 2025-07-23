@@ -1,0 +1,73 @@
+#include<iostream>
+using namespace std;
+
+class Bank {
+     int account_no;
+     int amount;
+     string name;
+     
+     
+     public:
+     void accept();
+     void display();
+};
+
+void Bank :: accept() {
+     cout<<"\nEnter account number :";
+     cin>>account_no;
+     
+     cout<<"Enter amount :";
+     cin>>amount;
+     
+     cout<<"Enter name :";
+     cin>>name;
+}
+
+void Bank :: display() {
+     cout<<"Your account number is :"<<account_no<<endl;
+     cout<<"Your amount in bank is:"<<amount<<endl;
+     cout<<"Your name is :"<<name<<endl;
+}
+
+int main(){
+
+     int n, t = 1, a, i = 0;
+     cout<<"Enter number of user :";
+     cin>>n;
+     Bank b[n];
+ 
+    
+     do{
+          cout<<"\n1.Accept\n2.Display\n3.Exist\n"<<"Enter your choice:";
+          cin>>a;
+          switch(a){
+               case 1:  if(i >= n){
+                                   cout<<"\nYou exceeds data limit"<<endl;
+                                   cout<<"You can enter only "<<n<<" users"<<endl;
+                                   break;
+                              }
+               
+                              b[i].accept();
+                              i++;
+                              break;
+                              
+               case 2:if(i == 0) {
+                                   cout<<"\n--No any use data regisetered--\n";
+                                   break;
+                            }
+               
+                            for(int j = 0 ; j < i ; j++){
+                                   cout<<"\nDetails of "<< j+1<<"user"<<endl;
+                                   b[j].display();
+                                   cout<<"\n";
+                             }
+                             break;
+                             
+               case 3: t = 0;
+          }
+     }while(t == 1);
+     
+     
+     
+     return 0;
+}
